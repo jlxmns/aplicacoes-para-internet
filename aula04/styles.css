@@ -1,0 +1,376 @@
+/* styles.css */
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green-dark:   #1a4a2e;
+  --green-mid:    #2d7a4f;
+  --green-light:  #4caf7d;
+  --green-pale:   #e8f5ee;
+  --white:        #ffffff;
+  --gray-light:   #f4f4f4;
+  --gray-mid:     #666666;
+  --text:         #1e2a1e;
+  --font:         'Segoe UI', system-ui, sans-serif;
+  --radius:       12px;
+  --shadow:       0 4px 16px rgba(0,0,0,0.10);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background-color: var(--white);
+  line-height: 1.6;
+}
+
+/* ─── Nav ─── */
+nav {
+  background-color: var(--green-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  gap: 0.25rem;
+}
+
+nav ul li:first-child {
+  margin-right: auto;
+}
+
+nav ul li span a {
+  display: block;
+  padding: 1rem 1.1rem;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+nav ul li span a:focus-visible {
+  outline: 3px solid var(--green-light);
+  outline-offset: 2px;
+}
+
+nav ul li:first-child span a {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+nav ul li span a:hover {
+  background-color: var(--green-mid);
+  color: var(--white);
+}
+
+/* ─── Header / Hero ─── */
+header {
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+  padding: 3.5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+header div {
+  max-width: 750px;
+  width: 100%;
+  text-align: center;
+}
+
+header figure {
+  display: inline-block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+header figure img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+header figure figcaption {
+  background: rgba(0,0,0,0.55);
+  color: #ddd;
+  font-size: 0.82rem;
+  padding: 0.5rem 1rem;
+  font-style: italic;
+}
+
+/* ─── Article (Mission Blocks) ─── */
+article {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Nested articles inside section need different treatment — see below */
+section article {
+  max-width: unset;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+article > div {
+  background-color: var(--green-pale);
+  border-left: 5px solid var(--green-light);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+article > div:hover {
+  transform: translateY(-3px);
+}
+
+article h2 {
+  font-size: 1.25rem;
+  color: var(--green-dark);
+  margin-bottom: 0.75rem;
+}
+
+article p {
+  color: var(--gray-mid);
+  font-size: 0.97rem;
+}
+
+/* ─── Section (Cards List) ─── */
+section {
+  background-color: var(--gray-light);
+  padding: 3rem 1.5rem;
+}
+
+section ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section ul li article div {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--green-light);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+section ul li article div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+
+section ul li article h2 {
+  font-size: 1.1rem;
+  color: var(--green-dark);
+  margin-bottom: 0.6rem;
+}
+
+section ul li article p {
+  color: var(--gray-mid);
+  font-size: 0.93rem;
+}
+
+/* ─── Footer ─── */
+footer {
+  background-color: var(--green-dark);
+  padding: 2.5rem 1.5rem;
+}
+
+footer > div {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+footer aside {
+  text-align: center;
+}
+
+#follow-us ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#follow-us ul li span a {
+  display: block;
+  padding: 0.55rem 1.2rem;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 999px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+#follow-us ul li span a:hover {
+  background-color: var(--green-light);
+  border-color: var(--green-light);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 700px) {
+  nav ul {
+    flex-wrap: wrap;
+    padding: 0.5rem;
+  }
+
+  nav ul li:first-child {
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  article {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Contact Section ─── */
+#contact {
+  background-color: var(--green-pale);
+  padding: 4rem 1.5rem;
+}
+
+.contact-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+#contact h2 {
+  font-size: 1.6rem;
+  color: var(--green-dark);
+  margin-bottom: 0.5rem;
+}
+
+#contact > div > p {
+  color: var(--gray-mid);
+  margin-bottom: 2rem;
+  font-size: 0.97rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #b0cfc0;
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 0.97rem;
+  color: var(--text);
+  background-color: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--green-mid);
+  box-shadow: 0 0 0 3px rgba(45, 122, 79, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#contact button[type="submit"] {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--green-mid);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+#contact button[type="submit"]:hover {
+  background-color: var(--green-dark);
+}
+
+#contact button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+#contact button[type="submit"]:focus-visible {
+  outline: 3px solid var(--green-light);
+  outline-offset: 3px;
+}
+
+/* ─── Video ─── */
+article figure {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+article figure video {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+
+article figure figcaption {
+  font-size: 0.82rem;
+  color: var(--gray-mid);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+.field-hint {
+  font-size: 0.8rem;
+  color: var(--gray-mid);
+  margin-top: 0.25rem;
+}
